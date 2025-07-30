@@ -1,0 +1,16 @@
+<div *ngIf="validation">
+  <h2>OC vs SAP</h2>
+  <div *ngFor="let diff of validation.ocVsSap">
+    <mat-icon color="primary" *ngIf="diff.status === 'ok'">check</mat-icon>
+    <mat-icon color="warn" *ngIf="diff.status === 'error'">close</mat-icon>
+    <mat-icon color="accent" *ngIf="diff.status === 'warn'">warning</mat-icon>
+    {{ diff.message }}
+  </div>
+  <h2>DLX</h2>
+  <div *ngFor="let diff of validation.dlx">
+    <mat-icon color="primary" *ngIf="diff.status === 'ok'">check</mat-icon>
+    <mat-icon color="warn" *ngIf="diff.status === 'error'">close</mat-icon>
+    <mat-icon color="accent" *ngIf="diff.status === 'warn'">warning</mat-icon>
+    {{ diff.message }}
+  </div>
+</div>
