@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +9,13 @@ import { Component } from '@angular/core';
 export class LoginComponent {
   username = '';
   password = '';
+  loginMessage = '';
+
+  constructor(private authService: AuthService) {}
 
   login() {
-    // Placeholder for login logic
-    console.log('Login clicked');
+    const ok = this.authService.authenticate(this.username, this.password);
+    this.loginMessage = ok ? 'Ingreso exitoso' : 'Credenciales inválidas';
+    console.log(this.loginMessage);
   }
 }
