@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FlowService } from '../../services/flow.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class NewFlowComponent {
   flowName = '';
   file?: File;
 
-  constructor(private flowService: FlowService) {}
+  constructor(private flowService: FlowService, private router: Router) {}
 
   onFileChange(event: any) {
     const files: FileList = event.target.files;
@@ -20,7 +21,10 @@ export class NewFlowComponent {
   }
 
   create() {
-    // Mock creation logic
-    this.flowService.createFlow({ name: this.flowName, file: this.file }).subscribe();
+    this.flowService
+      .createFlow({ name: this.flowName, file: this.file })
+      .subscribe(() => {
+        this.router.navigate(['/flujos']);
+      });
   }
 }

@@ -1,1 +1,6 @@
-/* Add global styles here */
+/* Global styles */
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  background: #f5f5f5;
+}

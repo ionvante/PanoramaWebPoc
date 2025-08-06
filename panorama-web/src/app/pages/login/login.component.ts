@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -11,11 +12,16 @@ export class LoginComponent {
   password = '';
   loginMessage = '';
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   login() {
     const ok = this.authService.authenticate(this.username, this.password);
-    this.loginMessage = ok ? 'Ingreso exitoso' : 'Credenciales inválidas';
+    if (ok) {
+      this.loginMessage = 'Ingreso exitoso';
+      this.router.navigate(['/flujos']);
+    } else {
+      this.loginMessage = 'Credenciales inválidas';
+    }
     console.log(this.loginMessage);
   }
 }

@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ import { ValidationComponent } from './pages/validation/validation.component';
     MatInputModule,
     MatSelectModule,
     MatDialogModule,
+    MatCardModule,
     AppRoutingModule
   ],
   providers: [],
