@@ -1,0 +1,11 @@
+# Ignore Node modules
+panorama-web/node_modules/
+
+# Ignore lock file
+panorama-web/package-lock.json
+
+# Angular build output
+panorama-web/dist/
+
+# Angular cache
+panorama-web/.angular/
