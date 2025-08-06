@@ -1,11 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 export interface Flow {
   id: number;
   name: string;
   status: string;
+}
+
+export interface NewFlow {
+  title: string;
+  turno: string;
+  fecha: string; // YYYY-MM-DD
+  creado_por: string;
+  estado?: string;
 }
 
 export interface FlowValidationDiff {
@@ -20,7 +28,10 @@ export interface FlowValidation {
 
 @Injectable({ providedIn: 'root' })
 export class FlowService {
-  private apiUrl = '/api/flows';
+  private apiUrl = 'https://localhost:5001/api/flows';
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
 
   constructor(private http: HttpClient) {}
 
@@ -28,13 +39,9 @@ export class FlowService {
     return this.http.get<Flow[]>(this.apiUrl);
   }
 
-  createFlow(data: any): Observable<any> {
-    const formData = new FormData();
-    formData.append('name', data.name);
-    if (data.file) {
-      formData.append('file', data.file);
-    }
-    return this.http.post(this.apiUrl, formData);
+  createFlow(flow: NewFlow): Observable<any> {
+    const body = { ...flow, estado: flow.estado ?? 'Registrado' };
+    return this.http.post<any>(this.apiUrl, body, this.httpOptions);
   }
 
   getValidation(id: string): Observable<FlowValidation> {
