@@ -7,7 +7,7 @@ import { FlowService, Flow } from '../../services/flow.service';
   styleUrls: ['./flows.component.css']
 })
 export class FlowsComponent implements OnInit {
-  displayedColumns = ['id', 'name', 'status'];
+  displayedColumns = ['id', 'title', 'turno', 'fecha', 'creado_por', 'estado'];
   dataSource: Flow[] = [];
 
   constructor(private flowService: FlowService) {}

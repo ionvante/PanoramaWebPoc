@@ -8,21 +8,23 @@ import { FlowService } from '../../services/flow.service';
   styleUrls: ['./new-flow.component.css']
 })
 export class NewFlowComponent {
-  flowName = '';
-  file?: File;
+  title = '';
+  turno = '';
+  fecha = '';
+  creadoPor = '';
+  estado = '';
 
   constructor(private flowService: FlowService, private router: Router) {}
 
-  onFileChange(event: any) {
-    const files: FileList = event.target.files;
-    if (files.length > 0) {
-      this.file = files[0];
-    }
-  }
-
   create() {
     this.flowService
-      .createFlow({ name: this.flowName, file: this.file })
+      .createFlow({
+        title: this.title,
+        turno: this.turno,
+        fecha: this.fecha,
+        creado_por: this.creadoPor,
+        estado: this.estado || undefined,
+      })
       .subscribe(() => {
         this.router.navigate(['/flujos']);
       });

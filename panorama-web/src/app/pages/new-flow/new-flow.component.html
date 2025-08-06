@@ -1,10 +1,25 @@
 <mat-card class="new-flow-card">
   <form (ngSubmit)="create()" class="new-flow-form">
     <mat-form-field appearance="fill">
-      <mat-label>Nombre del flujo</mat-label>
-      <input matInput [(ngModel)]="flowName" name="name" />
+      <mat-label>Título</mat-label>
+      <input matInput [(ngModel)]="title" name="title" />
     </mat-form-field>
-    <input type="file" (change)="onFileChange($event)" />
+    <mat-form-field appearance="fill">
+      <mat-label>Turno</mat-label>
+      <input matInput [(ngModel)]="turno" name="turno" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha</mat-label>
+      <input matInput type="date" [(ngModel)]="fecha" name="fecha" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Creado por</mat-label>
+      <input matInput [(ngModel)]="creadoPor" name="creadoPor" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Estado</mat-label>
+      <input matInput [(ngModel)]="estado" name="estado" />
+    </mat-form-field>
     <button mat-raised-button color="primary">Crear</button>
   </form>
 </mat-card>
