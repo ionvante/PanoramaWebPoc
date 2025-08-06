@@ -4,8 +4,11 @@ import { Observable } from 'rxjs';
 
 export interface Flow {
   id: number;
-  name: string;
-  status: string;
+  title: string;
+  turno: string;
+  fecha: string;
+  creado_por: string;
+  estado: string;
 }
 
 export interface NewFlow {
