@@ -13,6 +13,10 @@ export class FlowsComponent implements OnInit {
   constructor(private flowService: FlowService) {}
 
   ngOnInit(): void {
-    this.flowService.getFlows().subscribe(flows => this.dataSource = flows);
+    this.reload();
+  }
+
+  reload() {
+    this.flowService.getFlows().subscribe(flows => (this.dataSource = flows));
   }
 }

@@ -1,12 +1,15 @@
-<form (ngSubmit)="login()" class="login-form">
-  <mat-form-field appearance="fill">
-    <mat-label>Usuario</mat-label>
-    <input matInput [(ngModel)]="username" name="username">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Contraseña</mat-label>
-    <input matInput [(ngModel)]="password" name="password" type="password">
-  </mat-form-field>
-  <button mat-raised-button color="primary">Ingresar</button>
-</form>
-<p *ngIf="loginMessage">{{ loginMessage }}</p>
+<mat-card class="login-card">
+  <form (ngSubmit)="login()" class="login-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Usuario</mat-label>
+      <input matInput [(ngModel)]="username" name="username" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input matInput [(ngModel)]="password" name="password" type="password" />
+    </mat-form-field>
+    <button mat-raised-button color="primary">Ingresar</button>
+    <p *ngIf="loginMessage">{{ loginMessage }}</p>
+  </form>
+</mat-card>
+
